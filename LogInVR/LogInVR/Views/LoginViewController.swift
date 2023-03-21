@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
 
     var safeArea: UILayoutGuide!
+    var personImageView = UIImageView()
     var emailTextField = UITextField()
     var passwordTextField = UITextField()
     var loginButton = UIButton()
@@ -25,11 +26,26 @@ class LoginViewController: UIViewController {
     func setupLoginView() {
         safeArea = view.layoutMarginsGuide
         view.backgroundColor = .white
+        setupPersonImageView()
         setupEmailTextField()
         setupPasswordTextField()
         setupLoginButton()
         setupForgotPasswordButton()
         setupEyeButton()
+    }
+    
+    func setupPersonImageView() {
+        view.addSubview(personImageView)
+        personImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            personImageView.topAnchor.constraint(equalTo: safeArea.centerYAnchor, constant: -250),
+            personImageView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            personImageView.heightAnchor.constraint(equalToConstant: 100),
+            personImageView.widthAnchor.constraint(equalToConstant: 100),
+        ])
+        
+        personImageView.image = UIImage(systemName: "person.badge.key.fill")
+        personImageView.tintColor = .blue
     }
     
     func setupEmailTextField(){
@@ -68,17 +84,13 @@ class LoginViewController: UIViewController {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 10),
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 15),
             loginButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-            loginButton.heightAnchor.constraint(equalToConstant: 50),
-            loginButton.widthAnchor.constraint(equalToConstant: 330),
         ])
 
-        loginButton.layer.cornerRadius = 10
-        loginButton.backgroundColor = .blue
         loginButton.setTitle("Login", for: .normal)
-        loginButton.setTitleColor(.white, for: .normal)
-        //add target - print for testing
+        loginButton.setTitleColor(.blue, for: .normal)
+        loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
     }
     
     func setupForgotPasswordButton() {
@@ -87,15 +99,11 @@ class LoginViewController: UIViewController {
         NSLayoutConstraint.activate([
             forgotPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
             forgotPasswordButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 50),
-            forgotPasswordButton.widthAnchor.constraint(equalToConstant: 330),
         ])
 
-        forgotPasswordButton.layer.cornerRadius = 10
-        forgotPasswordButton.backgroundColor = .blue
         forgotPasswordButton.setTitle("Forgot password?", for: .normal)
-        forgotPasswordButton.setTitleColor(.white, for: .normal)
-        //add target - print for testing
+        forgotPasswordButton.setTitleColor(.blue, for: .normal)
+        forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonAction), for: .touchUpInside)
     }
     
     func setupEyeButton(){
@@ -105,12 +113,25 @@ class LoginViewController: UIViewController {
             eyeButton.topAnchor.constraint(equalTo: passwordTextField.topAnchor),
             eyeButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor, constant: -5),
             eyeButton.heightAnchor.constraint(equalToConstant: 50),
-            eyeButton.widthAnchor.constraint(equalToConstant: 20),
+            eyeButton.widthAnchor.constraint(equalToConstant: 40),
         ])
         
         eyeButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
         eyeButton.tintColor = .blue
-        //add target - print for testing
+        eyeButton.addTarget(self, action: #selector(eyeButtonAction), for: .touchUpInside)
+    }
+    
+    // MARK: - Button actions
+    @objc func loginButtonAction() {
+        print("login button action")
+    }
+    
+    @objc func forgotPasswordButtonAction() {
+        print("password button action")
+    }
+    
+    @objc func eyeButtonAction() {
+        print("eye button action")
     }
 
 }
