@@ -123,7 +123,16 @@ class LoginViewController: UIViewController {
     
     // MARK: - Button actions
     @objc func loginButtonAction() {
-        print("login button action")
+        guard let users = Utils.parseJson(jsonName: "Login", model: UserModel.self) else {
+            showAlert("Error getting JSON")
+            return
+        }
+        guard let getUser = users.users?.filter({
+            $0.password == passwordTextField.text! &&
+            $0.email == emailTextField.text!}).first else {
+            showAlert("Wrong credentials")
+            return
+        }
     }
     
     @objc func forgotPasswordButtonAction() {
@@ -132,6 +141,17 @@ class LoginViewController: UIViewController {
     
     @objc func eyeButtonAction() {
         print("eye button action")
+    }
+    
+    // MARK: - Additional funcs
+    func showAlert(_ message: String) {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+            if action.style == .cancel {
+                print("OK button pressed")
+            }
+        }))
+        present(alert, animated: true)
     }
 
 }
