@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // print("email: ", defaults.string(forKey: "email"))
         setupHomeView()
+        setupUserData()
     }
     
     func setupHomeView() {
@@ -58,7 +59,6 @@ class HomeViewController: UIViewController {
         ])
         userIdLabel.layer.cornerRadius = 5.0
         userIdLabel.backgroundColor = .lightGray.withAlphaComponent(0.5)
-        userIdLabel.text = "Id"
     }
     
     func setupUserNameLabel() {
@@ -72,7 +72,6 @@ class HomeViewController: UIViewController {
         ])
         userNameLabel.layer.cornerRadius = 5.0
         userNameLabel.backgroundColor = .lightGray.withAlphaComponent(0.5)
-        userNameLabel.text = "Name"
     }
     
     func setupUserEmailLabel(){
@@ -86,7 +85,6 @@ class HomeViewController: UIViewController {
         ])
         userEmailLabel.layer.cornerRadius = 5.0
         userEmailLabel.backgroundColor = .lightGray.withAlphaComponent(0.5)
-        userEmailLabel.text = "Email"
     }
     
     func setupLogoutButton() {
@@ -104,6 +102,17 @@ class HomeViewController: UIViewController {
     
     @objc func logoutButtonAction() {
         print("Logout button action")
+    }
+    
+    func setupUserData(){
+        let id: String? = KeychainWrapper.standard.string(forKey: "id")
+        let name: String? = KeychainWrapper.standard.string(forKey: "name")
+        let email: String? = KeychainWrapper.standard.string(forKey: "email")
+        let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
+        
+        userIdLabel.text = id
+        userNameLabel.text = name
+        userEmailLabel.text = email
     }
 
 }

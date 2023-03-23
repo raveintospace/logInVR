@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class LoginViewController: UIViewController {
 
@@ -61,6 +62,7 @@ class LoginViewController: UIViewController {
         emailTextField.layer.cornerRadius = 5.0
         emailTextField.backgroundColor = .lightGray.withAlphaComponent(0.5)
         emailTextField.autocapitalizationType = .none
+        emailTextField.autocorrectionType = .no
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
                                                                   attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
@@ -78,6 +80,7 @@ class LoginViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 5.0
         passwordTextField.backgroundColor = .lightGray.withAlphaComponent(0.5)
         passwordTextField.autocapitalizationType = .none
+        passwordTextField.autocorrectionType = .no
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
                                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
@@ -167,7 +170,12 @@ class LoginViewController: UIViewController {
     }
     
     func saveUserData(user: UserModel.Users) {
-        // defaults.set(user.email, forKey: "email")
+        KeychainWrapper.standard.set(user.id, forKey: "id")
+        KeychainWrapper.standard.set(user.name, forKey: "name")
+        KeychainWrapper.standard.set(user.email, forKey: "email")
+        KeychainWrapper.standard.set(user.accessToken, forKey: "accessToken")
+        
+// defaults.set(user.email, forKey: "email")
     }
 
 }
