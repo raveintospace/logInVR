@@ -60,6 +60,7 @@ class LoginViewController: UIViewController {
         
         emailTextField.layer.cornerRadius = 5.0
         emailTextField.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        emailTextField.autocapitalizationType = .none
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
                                                                   attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
@@ -76,6 +77,7 @@ class LoginViewController: UIViewController {
         
         passwordTextField.layer.cornerRadius = 5.0
         passwordTextField.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        passwordTextField.autocapitalizationType = .none
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
                                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
@@ -127,11 +129,21 @@ class LoginViewController: UIViewController {
             showAlert("Error getting JSON")
             return
         }
+        // check if getUser values match input values
         guard let getUser = users.users?.filter({
             $0.password == passwordTextField.text! &&
             $0.email == emailTextField.text!}).first else {
             showAlert("Wrong credentials")
             return
+        }
+       
+        saveUserData(user: getUser)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+            // self.navigationController?.pushViewController(vc, animated: true) - not used, shows "back" button & swipe works
+            view.window?.windowScene?.keyWindow?.rootViewController = vc
+            view.window?.windowScene?.keyWindow?.makeKeyAndVisible()
         }
     }
     
@@ -152,6 +164,10 @@ class LoginViewController: UIViewController {
             }
         }))
         present(alert, animated: true)
+    }
+    
+    func saveUserData(user: UserModel.Users) {
+        // defaults.set(user.email, forKey: "email")
     }
 
 }

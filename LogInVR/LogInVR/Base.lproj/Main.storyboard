@@ -27,7 +27,7 @@
         <!--Home View Controller-->
         <scene sceneID="7BT-J5-mNZ">
             <objects>
-                <viewController id="FbW-dc-UDM" customClass="HomeViewController" customModule="LogInVR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="FbW-dc-UDM" customClass="HomeViewController" customModule="LogInVR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FEg-e2-nBy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

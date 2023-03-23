@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class HomeViewController: UIViewController {
 
@@ -19,6 +20,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // print("email: ", defaults.string(forKey: "email"))
         setupHomeView()
     }
     
