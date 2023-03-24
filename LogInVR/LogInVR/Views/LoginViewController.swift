@@ -15,7 +15,6 @@ class LoginViewController: UIViewController {
     var emailTextField = UITextField()
     var passwordTextField = UITextField()
     var loginButton = UIButton()
-    var forgotPasswordButton = UIButton()
     var eyeButton = UIButton()
     private var defaults = UserDefaults.standard
     
@@ -31,7 +30,6 @@ class LoginViewController: UIViewController {
         setupEmailTextField()
         setupPasswordTextField()
         setupLoginButton()
-        setupForgotPasswordButton()
         setupEyeButton()
     }
     
@@ -81,6 +79,7 @@ class LoginViewController: UIViewController {
         passwordTextField.backgroundColor = .lightGray.withAlphaComponent(0.5)
         passwordTextField.autocapitalizationType = .none
         passwordTextField.autocorrectionType = .no
+        passwordTextField.isSecureTextEntry = true
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
                                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
@@ -96,19 +95,6 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("Login", for: .normal)
         loginButton.setTitleColor(.blue, for: .normal)
         loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
-    }
-    
-    func setupForgotPasswordButton() {
-        view.addSubview(forgotPasswordButton)
-        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            forgotPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
-            forgotPasswordButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-        ])
-
-        forgotPasswordButton.setTitle("Forgot password?", for: .normal)
-        forgotPasswordButton.setTitleColor(.blue, for: .normal)
-        forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonAction), for: .touchUpInside)
     }
     
     func setupEyeButton(){
@@ -151,12 +137,12 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @objc func forgotPasswordButtonAction() {
-        print("password button action")
-    }
-    
     @objc func eyeButtonAction() {
         print("eye button action")
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        
+        let icon: String = passwordTextField.isSecureTextEntry ? "eye.fill" : "eye.slash"
+        eyeButton.setImage(UIImage(systemName: icon), for: .normal)
     }
     
     // MARK: - Additional funcs
