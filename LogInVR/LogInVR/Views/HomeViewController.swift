@@ -44,8 +44,7 @@ class HomeViewController: UIViewController {
             userImageView.heightAnchor.constraint(equalToConstant: 100),
             userImageView.widthAnchor.constraint(equalToConstant: 125),
         ])
-        userImageView.image = UIImage(systemName: "person.fill.checkmark")
-        userImageView.tintColor = .green
+        userImageView.standardSetup(systemName: "person.fill.checkmark", color: .green)
     }
 
     func setupUserIdLabel(){
@@ -57,8 +56,7 @@ class HomeViewController: UIViewController {
             userIdLabel.heightAnchor.constraint(equalToConstant: 50),
             userIdLabel.widthAnchor.constraint(equalToConstant: 330),
         ])
-        userIdLabel.layer.cornerRadius = 5.0
-        userIdLabel.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        userIdLabel.standardSetup()
     }
     
     func setupUserNameLabel() {
@@ -70,8 +68,7 @@ class HomeViewController: UIViewController {
             userNameLabel.heightAnchor.constraint(equalToConstant: 50),
             userNameLabel.widthAnchor.constraint(equalToConstant: 330),
         ])
-        userNameLabel.layer.cornerRadius = 5.0
-        userNameLabel.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        userNameLabel.standardSetup()
     }
     
     func setupUserEmailLabel(){
@@ -83,8 +80,7 @@ class HomeViewController: UIViewController {
             userEmailLabel.heightAnchor.constraint(equalToConstant: 50),
             userEmailLabel.widthAnchor.constraint(equalToConstant: 330),
         ])
-        userEmailLabel.layer.cornerRadius = 5.0
-        userEmailLabel.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        userEmailLabel.standardSetup()
     }
     
     func setupLogoutButton() {
@@ -94,9 +90,7 @@ class HomeViewController: UIViewController {
             logoutButton.topAnchor.constraint(equalTo: userEmailLabel.bottomAnchor, constant: 15),
             logoutButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
         ])
-
-        logoutButton.setTitle("Logout", for: .normal)
-        logoutButton.setTitleColor(.blue, for: .normal)
+        logoutButton.standardSetup(title: "Logout")
         logoutButton.addTarget(self, action: #selector(logoutButtonAction), for: .touchUpInside)
     }
     

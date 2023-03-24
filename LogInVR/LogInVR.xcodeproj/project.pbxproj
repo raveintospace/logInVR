@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3423D1DE29CDEFB90005D35B /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423D1DD29CDEFB90005D35B /* UITextField+Extensions.swift */; };
+		3423D1E029CDF1580005D35B /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423D1DF29CDF1580005D35B /* UILabel+Extensions.swift */; };
+		3423D1E229CDF23F0005D35B /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423D1E129CDF23F0005D35B /* UIImageView+Extensions.swift */; };
+		3423D1E429CDF43C0005D35B /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423D1E329CDF43C0005D35B /* UIButton+Extensions.swift */; };
 		3488106029C8CA890048E346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488105F29C8CA890048E346 /* AppDelegate.swift */; };
 		3488106229C8CA890048E346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488106129C8CA890048E346 /* SceneDelegate.swift */; };
 		3488106429C8CA890048E346 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488106329C8CA890048E346 /* LoginViewController.swift */; };
@@ -21,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3423D1DD29CDEFB90005D35B /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		3423D1DF29CDF1580005D35B /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		3423D1E129CDF23F0005D35B /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		3423D1E329CDF43C0005D35B /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		3488105C29C8CA890048E346 /* LogInVR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogInVR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3488105F29C8CA890048E346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3488106129C8CA890048E346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +58,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3423D1DC29CDEF990005D35B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3423D1DD29CDEFB90005D35B /* UITextField+Extensions.swift */,
+				3423D1DF29CDF1580005D35B /* UILabel+Extensions.swift */,
+				3423D1E129CDF23F0005D35B /* UIImageView+Extensions.swift */,
+				3423D1E329CDF43C0005D35B /* UIButton+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3488105329C8CA890048E346 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +116,7 @@
 		34A916B129CA241E00977304 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3423D1DC29CDEF990005D35B /* Extensions */,
 				34A916B229CA243400977304 /* Utils.swift */,
 			);
 			path = Utils;
@@ -132,7 +152,6 @@
 				CFB5268244C35AA4AB4A1039 /* Pods-LogInVR.debug.xcconfig */,
 				6ECE2C9CBC534B39989F97AC /* Pods-LogInVR.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -254,8 +273,12 @@
 			files = (
 				34A916B329CA243400977304 /* Utils.swift in Sources */,
 				3488106429C8CA890048E346 /* LoginViewController.swift in Sources */,
+				3423D1DE29CDEFB90005D35B /* UITextField+Extensions.swift in Sources */,
+				3423D1E429CDF43C0005D35B /* UIButton+Extensions.swift in Sources */,
 				34A916B029CA1E9100977304 /* HomeViewController.swift in Sources */,
+				3423D1E029CDF1580005D35B /* UILabel+Extensions.swift in Sources */,
 				3488106029C8CA890048E346 /* AppDelegate.swift in Sources */,
+				3423D1E229CDF23F0005D35B /* UIImageView+Extensions.swift in Sources */,
 				34A916B629CA246700977304 /* UserModel.swift in Sources */,
 				3488106229C8CA890048E346 /* SceneDelegate.swift in Sources */,
 			);

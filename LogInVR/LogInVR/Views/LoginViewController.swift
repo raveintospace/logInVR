@@ -42,9 +42,7 @@ class LoginViewController: UIViewController {
             personImageView.heightAnchor.constraint(equalToConstant: 100),
             personImageView.widthAnchor.constraint(equalToConstant: 100),
         ])
-        
-        personImageView.image = UIImage(systemName: "person.badge.key.fill")
-        personImageView.tintColor = .blue
+        personImageView.standardSetup(systemName: "person.badge.key.fill", color: .blue)
     }
     
     func setupEmailTextField(){
@@ -56,13 +54,7 @@ class LoginViewController: UIViewController {
             emailTextField.heightAnchor.constraint(equalToConstant: 50),
             emailTextField.widthAnchor.constraint(equalToConstant: 330),
         ])
-        
-        emailTextField.layer.cornerRadius = 5.0
-        emailTextField.backgroundColor = .lightGray.withAlphaComponent(0.5)
-        emailTextField.autocapitalizationType = .none
-        emailTextField.autocorrectionType = .no
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
-                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        emailTextField.standardSetup(nameInField: "Email")
     }
     
     func setupPasswordTextField() {
@@ -74,14 +66,8 @@ class LoginViewController: UIViewController {
             passwordTextField.heightAnchor.constraint(equalToConstant: 50),
             passwordTextField.widthAnchor.constraint(equalToConstant: 330),
         ])
-        
-        passwordTextField.layer.cornerRadius = 5.0
-        passwordTextField.backgroundColor = .lightGray.withAlphaComponent(0.5)
-        passwordTextField.autocapitalizationType = .none
-        passwordTextField.autocorrectionType = .no
+        passwordTextField.standardSetup(nameInField: "Password")
         passwordTextField.isSecureTextEntry = true
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
-                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
     func setupLoginButton() {
@@ -91,9 +77,7 @@ class LoginViewController: UIViewController {
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 15),
             loginButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
         ])
-
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.setTitleColor(.blue, for: .normal)
+        loginButton.standardSetup(title: "Login")
         loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
     }
     
@@ -106,9 +90,7 @@ class LoginViewController: UIViewController {
             eyeButton.heightAnchor.constraint(equalToConstant: 50),
             eyeButton.widthAnchor.constraint(equalToConstant: 40),
         ])
-        
-        eyeButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
-        eyeButton.tintColor = .blue
+        eyeButton.imageSetup(systemName: "eye.fill")
         eyeButton.addTarget(self, action: #selector(eyeButtonAction), for: .touchUpInside)
     }
     
