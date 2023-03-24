@@ -120,7 +120,6 @@ class LoginViewController: UIViewController {
     }
     
     @objc func eyeButtonAction() {
-        print("eye button action")
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
         
         let icon: String = passwordTextField.isSecureTextEntry ? "eye.fill" : "eye.slash"
@@ -130,11 +129,7 @@ class LoginViewController: UIViewController {
     // MARK: - Additional funcs
     func showAlert(_ message: String) {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
-            if action.style == .cancel {
-                print("OK button pressed")
-            }
-        }))
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         present(alert, animated: true)
     }
     

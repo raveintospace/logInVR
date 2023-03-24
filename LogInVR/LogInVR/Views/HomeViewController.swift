@@ -90,7 +90,7 @@ class HomeViewController: UIViewController {
             logoutButton.topAnchor.constraint(equalTo: userEmailLabel.bottomAnchor, constant: 15),
             logoutButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
         ])
-        logoutButton.standardSetup(title: "Logout")
+        logoutButton.standardTextSetup(title: "Logout")
         logoutButton.addTarget(self, action: #selector(logoutButtonAction), for: .touchUpInside)
     }
     
