@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    func standardSetup(title: String) {
+    func standardTextSetup(title: String) {
         setTitle(title, for: .normal)
         setTitleColor(.blue, for: .normal)
     }
     
-    func imageSetup(systemName: String) {
+    func standardImageSetup(systemName: String) {
         setImage(UIImage(systemName: systemName), for: .normal)
         tintColor = .blue
     }

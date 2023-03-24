@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     var passwordTextField = UITextField()
     var loginButton = UIButton()
     var eyeButton = UIButton()
-    private var defaults = UserDefaults.standard
+    private var defaults = UserDefaults.standard  // -> only to test how it works
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 15),
             loginButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
         ])
-        loginButton.standardSetup(title: "Login")
+        loginButton.standardTextSetup(title: "Login")
         loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
     }
     
@@ -90,7 +90,7 @@ class LoginViewController: UIViewController {
             eyeButton.heightAnchor.constraint(equalToConstant: 50),
             eyeButton.widthAnchor.constraint(equalToConstant: 40),
         ])
-        eyeButton.imageSetup(systemName: "eye.fill")
+        eyeButton.standardImageSetup(systemName: "eye.fill")
         eyeButton.addTarget(self, action: #selector(eyeButtonAction), for: .touchUpInside)
     }
     
