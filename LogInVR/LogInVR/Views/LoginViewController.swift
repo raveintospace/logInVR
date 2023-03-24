@@ -1,7 +1,7 @@
 //
 //  ViewController.swift
 //  LogInVR
-//
+//  https://youtu.be/5AJrqBF7jaE - min 18 thursday
 //  Created by Uri on 20/3/23.
 //
 
@@ -135,7 +135,8 @@ class LoginViewController: UIViewController {
         // check if getUser values match input values
         guard let getUser = users.users?.filter({
             $0.password == passwordTextField.text! &&
-            $0.email == emailTextField.text!}).first else {
+            $0.email == emailTextField.text!}).first
+        else {
             showAlert("Wrong credentials")
             return
         }

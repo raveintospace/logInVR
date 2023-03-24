@@ -101,7 +101,17 @@ class HomeViewController: UIViewController {
     }
     
     @objc func logoutButtonAction() {
-        print("Logout button action")
+        KeychainWrapper.standard.removeObject(forKey: "id")
+        KeychainWrapper.standard.removeObject(forKey: "name")
+        KeychainWrapper.standard.removeObject(forKey: "email")
+        KeychainWrapper.standard.removeObject(forKey: "accessToken")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            // self.navigationController?.pushViewController(vc, animated: true) - not used, shows "back" button & swipe works
+            view.window?.windowScene?.keyWindow?.rootViewController = vc
+            view.window?.windowScene?.keyWindow?.makeKeyAndVisible()
+        }
     }
     
     func setupUserData(){
@@ -110,9 +120,10 @@ class HomeViewController: UIViewController {
         let email: String? = KeychainWrapper.standard.string(forKey: "email")
         let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
         
-        userIdLabel.text = id
-        userNameLabel.text = name
-        userEmailLabel.text = email
+        userIdLabel.text = "Id: " + id!
+        userNameLabel.text = "Name: " + name!
+        userEmailLabel.text = "Email: " + email!
+        print("AccessToken: " + accessToken!)
     }
 
 }
