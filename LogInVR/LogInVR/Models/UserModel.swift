@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct UserModel : Decodable{
+struct UserModel: Decodable{
     let users: [Users]?
     
-    struct Users: Decodable{
+    struct Users: Decodable {
         let id: String
         let name: String
         let email: String

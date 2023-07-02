@@ -55,6 +55,8 @@ class LoginViewController: UIViewController {
             emailTextField.widthAnchor.constraint(equalToConstant: 330),
         ])
         emailTextField.standardSetup(nameInField: "Email")
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.textContentType = .emailAddress
     }
     
     func setupPasswordTextField() {
